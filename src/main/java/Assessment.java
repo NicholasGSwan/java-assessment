@@ -11,13 +11,16 @@ public class Assessment {
         int[] toAverage = {75, 90, 100, 82, 78, 95};
         System.out.println(average(toAverage));
         ArrayList<User> users = new ArrayList<>();
+//        Person Red = new Person("Red", null);
         users.add(new User("Nicholas", "Swan", false));
         users.add(new User("nicholas", "Swan", false));
-        users.add(new User("Nicholas", "swan", false));
+        users.add(new User("Nicholas", "swan", true));
         users.add(new User("brandon", "gossen", false));
         printAllUsers(users);
         capitalizeRecords(users);
         printAllUsers(users);
+        allUsersSayHello(users);
+        allUsersIsAdmin(users);
     }
 
     public static long square(int number){
@@ -43,7 +46,7 @@ public class Assessment {
         }
         return users;
     }
-
+    //does the actual changing of the first letter
     public static String changeFirstLetterToCapital(String word){
         if (word.equals(word.toLowerCase())) {
             return word.substring(0, 1).toUpperCase() + word.substring(1);
@@ -52,9 +55,26 @@ public class Assessment {
         }
 
     }
+    //prints all User first and last names from ArrayList of Users
     public static void printAllUsers (ArrayList<User> users){
         for(User user: users){
             System.out.println(user.getFirstName()+" "+user.getLastName());
+        }
+    }
+    //Says Hello from all Users in ArrayList
+    public static void allUsersSayHello(ArrayList<User> users){
+        for(User user: users){
+            System.out.println(user.sayHello());
+        }
+    }
+    //Prints whether or not a User is an admin from ArrayList
+    public static void allUsersIsAdmin(ArrayList<User> users){
+        for(User user: users){
+            if(user.isAdmin()){
+                System.out.println(user.getFirstName()+" "+user.getLastName()+" is an Admin");
+            }else {
+                System.out.println(user.getFirstName() + " " + user.getLastName() + " is not an Admin");
+            }
         }
     }
 

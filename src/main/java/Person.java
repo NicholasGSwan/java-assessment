@@ -4,13 +4,17 @@ public class Person implements Greeter {
     protected String firstName;
     protected String lastName;
     public Person(String firstName, String lastName) throws IllegalArgumentException{
-        try {
+        if (firstName.equals(null)||lastName.equals(null)){
+            System.out.println("Could not create Person");
+            throw new IllegalArgumentException();
+
+        }
             this.firstName = firstName;
             this.lastName = lastName;
-        }catch (IllegalArgumentException e){
-            e.printStackTrace();
-            System.out.println("Could not create Person");
-        }
+
+
+
+
     }
     public String sayHello(){
         return "Hello from "+firstName+" "+lastName;
